@@ -7,7 +7,7 @@ public class Conservar implements ITipoConduccion {
     float desgastePorEstilo;
 
     public Conservar() {
-        this.desgastePorEstilo = 1.104f;
+        this.desgastePorEstilo = 1.109f;
     }
 
     @Override

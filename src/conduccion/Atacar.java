@@ -7,7 +7,7 @@ public class Atacar implements ITipoConduccion {
     float desgastePorEstilo;
 
     public Atacar() {
-        this.desgastePorEstilo = 1.450f;
+        this.desgastePorEstilo = 1.236f;
     }
 
     @Override

@@ -7,7 +7,7 @@ public class Neutral implements ITipoConduccion {
     float desgastePorEstilo;
 
     public Neutral() {
-        this.desgastePorEstilo = 1.346f;
+        this.desgastePorEstilo = 1.182f;
     }
 
     @Override
