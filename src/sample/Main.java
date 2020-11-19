@@ -13,7 +13,7 @@ public class Main extends Application {
         FXMLLoader fxmlloader = new FXMLLoader();
         Parent root = fxmlloader.load(getClass().getResource("sample.fxml"));
         primaryStage.setTitle("Menú de estrategias");
-        primaryStage.setScene(new Scene(root, 300, 500));
+        primaryStage.setScene(new Scene(root, 300, 450));
         primaryStage.show();
     }
 
