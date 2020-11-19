@@ -3,9 +3,9 @@ package sample;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import conduccion.*;
 import javafx.fxml.Initializable;
 
-import conduccion.CambiarConduccion;
 import neumaticos.PirelliFactory;
 import neumaticos.INeumatico;
 
@@ -52,19 +52,7 @@ public class Controller implements Initializable {
     public void llenarTabla() throws Exception {
         table_resultados.getItems().clear();
 
-        CambiarConduccion estilo = new CambiarConduccion();
-
-        switch ((String) choice_conduccion.getValue()) {
-            case "Conservar":
-                estilo.ConduccionDefensiva();
-                break;
-            case "Atacar":
-                estilo.ConduccionOfensiva();
-                break;
-            default:
-                estilo.ConduccionNeutral();
-                break;
-        }
+        ITipoConduccion tipoConduccion = elegirConduccion((String) choice_conduccion.getValue());
 
         String compuesto = (String) choice_neumatico.getValue();
         INeumatico neumatico = PirelliFactory.ObtenerNeumatico(compuesto);
@@ -73,11 +61,22 @@ public class Controller implements Initializable {
         float vidaUtil = 100f;
 
         while (vidaUtil > 0) {
-            vidaUtil = estilo.DesgastePorVuelta(neumatico, vidaUtil);
+            vidaUtil = tipoConduccion.calcularDesgaste(neumatico, vidaUtil);
             if (vidaUtil <= 0) {
                 break;
             }
             table_resultados.getItems().add(new Registro(i += 1, vidaUtil));
+        }
+    }
+
+    private ITipoConduccion elegirConduccion(String opt){
+        switch (opt) {
+            case "Conservar":
+                return new Conservar();
+            case "Atacar":
+                return new Atacar();
+            default:
+                return new Neutral();
         }
     }
 }

@@ -2,9 +2,7 @@ package conduccion;
 
 import neumaticos.INeumatico;
 
-public class Neutral implements ITipoConduccion {
-
-    float desgastePorEstilo;
+public class Neutral extends ITipoConduccion {
 
     public Neutral() {
         this.desgastePorEstilo = 1.182f;

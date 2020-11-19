@@ -2,8 +2,10 @@ package conduccion;
 
 import neumaticos.INeumatico;
 
-public interface ITipoConduccion {
-    String obtenerDescripcion();
+public abstract class ITipoConduccion {
+    float desgastePorEstilo;
 
-    float calcularDesgaste(INeumatico neumatico, float desgasteActual);
+    public abstract String obtenerDescripcion();
+
+    public abstract float calcularDesgaste(INeumatico neumatico, float desgasteActual);
 }
