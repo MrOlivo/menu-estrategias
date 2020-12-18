@@ -18,7 +18,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
 public class Controller implements Initializable {
-    public ComboBox<String> combo_driving_type;
+    public ComboBox<String> combo_driving_style;
     public ComboBox<String> combo_tire;
     public TableView<Registro> table_results;
     public TableColumn<Registro, Integer> column_id;
@@ -27,15 +27,15 @@ public class Controller implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        ObservableList<String> compuestos = FXCollections.observableArrayList();
-        compuestos.addAll("Blando", "Superblando", "Ultrablando");
-        combo_tire.setItems(compuestos);
+        ObservableList<String> compound_list = FXCollections.observableArrayList();
+        compound_list.addAll("Blando", "Superblando", "Ultrablando");
+        combo_tire.setItems(compound_list);
         combo_tire.getSelectionModel().selectFirst();
 
-        ObservableList<String> modos = FXCollections.observableArrayList();
-        modos.addAll("Neutral", "Atacar", "Conservar");
-        combo_driving_type.setItems(modos);
-        combo_driving_type.getSelectionModel().selectFirst();
+        ObservableList<String> driving_list = FXCollections.observableArrayList();
+        driving_list.addAll("Neutral", "Atacar", "Conservar");
+        combo_driving_style.setItems(driving_list);
+        combo_driving_style.getSelectionModel().selectFirst();
 
         column_id.setCellValueFactory(new PropertyValueFactory<>("id"));
         column_wear.setCellValueFactory(new PropertyValueFactory<>("desgaste"));
@@ -52,7 +52,7 @@ public class Controller implements Initializable {
     public void fillTable() {
         table_results.getItems().clear();
 
-        ITipoConduccion drivingStyle = getDrivingStyle(combo_driving_type.getValue());
+        ITipoConduccion drivingStyle = getDrivingStyle(combo_driving_style.getValue());
         String compound = combo_tire.getValue();
         INeumatico tire = PirelliFactory.ObtenerNeumatico(compound);
 
