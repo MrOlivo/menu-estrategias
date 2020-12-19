@@ -53,8 +53,7 @@ public class Controller implements Initializable {
         table_results.getItems().clear();
 
         ITipoConduccion drivingStyle = getDrivingStyle(combo_driving_style.getValue());
-        String compound = combo_tire.getValue();
-        INeumatico tire = PirelliFactory.ObtenerNeumatico(compound);
+        INeumatico tire = PirelliFactory.ObtenerNeumatico(combo_tire.getValue());
 
         int i = 0;
         float vidaUtil = 100f;
@@ -69,10 +68,10 @@ public class Controller implements Initializable {
     }
 
     private ITipoConduccion getDrivingStyle(String opt){
-        switch (opt) {
-            case "Conservar":
+        switch (opt.toLowerCase()) {
+            case "conservar":
                 return new Conservar();
-            case "Atacar":
+            case "atacar":
                 return new Atacar();
             default:
                 return new Neutral();
