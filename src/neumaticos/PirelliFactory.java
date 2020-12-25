@@ -1,7 +1,7 @@
 package neumaticos;
 
 public class PirelliFactory {
-    public static INeumatico ObtenerNeumatico(String compuesto) {
+    public static INeumatico obtenerNeumatico(String compuesto) {
         compuesto = compuesto.toLowerCase();
 
         if (compuesto.equals("superblando")) {
