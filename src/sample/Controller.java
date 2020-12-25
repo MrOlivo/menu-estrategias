@@ -53,18 +53,15 @@ public class Controller implements Initializable {
         table_results.getItems().clear();
 
         ITipoConduccion drivingStyle = getDrivingStyle(combo_driving_style.getValue());
-        INeumatico tire = PirelliFactory.ObtenerNeumatico(combo_tire.getValue());
+        INeumatico tire = PirelliFactory.obtenerNeumatico(combo_tire.getValue());
 
-        int i = 0;
+        int i = -1;
         float vidaUtil = 100f;
 
-        while (vidaUtil > 0) {
-            vidaUtil = drivingStyle.calcularDesgaste(tire, vidaUtil);
-            if (vidaUtil <= 0) {
-                break;
-            }
+        do{
             table_results.getItems().add(new Registro(i += 1, vidaUtil));
-        }
+            vidaUtil = drivingStyle.calcularDesgaste(tire, vidaUtil);
+        } while (vidaUtil > 0);
     }
 
     private ITipoConduccion getDrivingStyle(String opt){
