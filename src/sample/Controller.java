@@ -28,7 +28,7 @@ public class Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         ObservableList<String> compound_list = FXCollections.observableArrayList();
-        compound_list.addAll("Blando", "Superblando", "Ultrablando");
+        compound_list.addAll("Soft", "Super soft", "Ultra soft");
         combo_tire.setItems(compound_list);
         combo_tire.getSelectionModel().selectFirst();
 
@@ -53,7 +53,7 @@ public class Controller implements Initializable {
         table_results.getItems().clear();
 
         ITipoConduccion drivingStyle = getDrivingStyle(combo_driving_style.getValue());
-        INeumatico tire = PirelliFactory.obtenerNeumatico(combo_tire.getValue());
+        INeumatico tire = PirelliFactory.getTyre(combo_tire.getValue());
 
         int i = -1;
         float vidaUtil = 100f;
