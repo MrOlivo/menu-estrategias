@@ -32,9 +32,9 @@ public class Controller implements Initializable {
         comboBoxTyres.setItems(compoundsList);
         comboBoxTyres.getSelectionModel().selectFirst();
 
-        ObservableList<String> driving_list = FXCollections.observableArrayList();
-        driving_list.addAll("Neutral", "Attack", "Keep");
-        comboBoxDrivingStyles.setItems(driving_list);
+        ObservableList<String> drivingList = FXCollections.observableArrayList();
+        drivingList.addAll("Neutral", "Attack", "Keep");
+        comboBoxDrivingStyles.setItems(drivingList);
         comboBoxDrivingStyles.getSelectionModel().selectFirst();
 
         column_id.setCellValueFactory(new PropertyValueFactory<>("id"));
@@ -50,7 +50,7 @@ public class Controller implements Initializable {
     }
 
     public void fillTable() {
-        ITipoConduccion drivingStyle = ITipoConduccion.getDrivingStyle(comboBoxDrivingStyles.getValue());
+        ITipoConduccion drivingStyle = this.getDrivingStyle(comboBoxDrivingStyles.getValue());
         INeumatico tyre = PirelliFactory.getTyre(comboBoxTyres.getValue());
 
         int i = 0;
@@ -63,5 +63,16 @@ public class Controller implements Initializable {
         } while (useful_life > 0);
 
         tableviewResults.setItems(tempList);
+    }
+
+    private ITipoConduccion getDrivingStyle(String opt){
+        switch (opt.toLowerCase()) {
+            case "keep":
+                return new Conservar();
+            case "attack":
+                return new Atacar();
+            default:
+                return new Neutral();
+        }
     }
 }
