@@ -3,7 +3,7 @@ package conduccion;
 import neumaticos.INeumatico;
 
 public abstract class ITipoConduccion {
-    float wearing;
+    float wearRatio;
 
     public abstract String getDescription();
 

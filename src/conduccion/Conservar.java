@@ -5,7 +5,7 @@ import neumaticos.INeumatico;
 public class Conservar extends ITipoConduccion {
 
     public Conservar() {
-        this.wearing = 1.109f;
+        this.wearRatio = 1.109f;
     }
 
     @Override
@@ -15,6 +15,6 @@ public class Conservar extends ITipoConduccion {
 
     @Override
     public float calculateWearing(INeumatico tyre, float currentWear) {
-        return currentWear - (tyre.getWearByLap() * this.wearing);
+        return currentWear - (tyre.getWearByLap() * this.wearRatio);
     }
 }
