@@ -2,11 +2,11 @@ package sample;
 
 public class Registro {
     private int id;
-    private String desgaste;
+    private String wear;
 
-    public Registro(int id, float desgaste) {
+    public Registro(int id, float wear) {
         this.id = id;
-        this.desgaste = formatear(desgaste);
+        this.wear = toString(wear);
     }
 
     public int getId() {
@@ -17,15 +17,15 @@ public class Registro {
         this.id = id;
     }
 
-    public String getDesgaste() {
-        return desgaste;
+    public String getWear() {
+        return wear;
     }
 
-    public void setDesgaste(float desgaste) {
-        this.desgaste = formatear(desgaste);
+    public void setWear(float wear) {
+        this.wear = toString(wear);
     }
 
-    private String formatear(float n){
+    private String toString(float n){
         return String.format("%.2f", n);
     }
 }
