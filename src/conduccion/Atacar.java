@@ -5,16 +5,16 @@ import neumaticos.INeumatico;
 public class Atacar extends ITipoConduccion {
 
     public Atacar() {
-        this.desgastePorEstilo = 1.236f;
+        this.wearing = 1.236f;
     }
 
     @Override
-    public String obtenerDescripcion() {
+    public String getDescription() {
         return "Desgaste ALTO por vuelta.";
     }
 
     @Override
-    public float calcularDesgaste(INeumatico neumatico, float desgasteActual) {
-        return desgasteActual - (neumatico.getDesgastePorVuelta() * desgastePorEstilo);
+    public float calculateWearing(INeumatico tyre, float currentWear) {
+        return currentWear - (tyre.getWearByLap() * this.wearing);
     }
 }
