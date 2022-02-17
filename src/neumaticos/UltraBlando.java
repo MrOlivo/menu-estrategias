@@ -8,7 +8,7 @@ public class UltraBlando implements INeumatico {
     }
 
     @Override
-    public float getDesgastePorVuelta() {
+    public float getWearByLap() {
         return desgaste_por_vuelta;
     }
 }

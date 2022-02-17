@@ -1,5 +1,5 @@
 package neumaticos;
 
 public interface INeumatico {
-    float getDesgastePorVuelta();
+    float getWearByLap();
 }

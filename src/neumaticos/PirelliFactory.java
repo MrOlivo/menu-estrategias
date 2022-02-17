@@ -2,14 +2,13 @@ package neumaticos;
 
 public class PirelliFactory {
     public static INeumatico getTyre(String compound) {
-        compound = compound.toLowerCase();
-
-        if (compound.equals("super soft")) {
-            return new SuperBlando();
-        } else if (compound.equals("ultra soft")) {
-            return new UltraBlando();
-        } else {
-            return new Blando();
+        switch (compound.toLowerCase()) {
+            case "super-soft":
+                return new SuperBlando();
+            case "ultra-soft":
+                return new UltraBlando();
+            default:
+                return new Blando();
         }
     }
 }
