@@ -1,4 +1,4 @@
-package sample;
+package main;
 
 import java.net.URL;
 import java.util.ResourceBundle;
