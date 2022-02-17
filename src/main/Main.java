@@ -13,8 +13,12 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Parent root = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("sample.fxml")));
+        Scene scene = new Scene(root, 300, 550);
+
+        scene.getStylesheets().add("main/stylesheet.css");
+
         primaryStage.setTitle("Menu of Strategies");
-        primaryStage.setScene(new Scene(root, 300, 550));
+        primaryStage.setScene(scene);
         primaryStage.setResizable(false);
         primaryStage.show();
     }
