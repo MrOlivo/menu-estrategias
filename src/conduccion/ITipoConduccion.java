@@ -7,5 +7,7 @@ public abstract class ITipoConduccion {
 
     public abstract String getDescription();
 
-    public abstract float calculateWearing(INeumatico tyre, float currentWear);
+    public float calculateWearing(INeumatico tyre, float currentWear){
+        return currentWear - (tyre.getWearByLap() * this.wearRatio);
+    };
 }
