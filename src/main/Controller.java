@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import conduccion.*;
+import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 
 import neumaticos.PirelliFactory;
@@ -40,16 +41,21 @@ public class Controller implements Initializable {
         column_id.setCellValueFactory(new PropertyValueFactory<>("id"));
         column_wear.setCellValueFactory(new PropertyValueFactory<>("wear"));
 
-        buttonCalculate.setOnAction(actionEvent -> {
-            try {
-                fillTable();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        });
+        comboBoxTyres.setOnAction(this::handleChange);
+        comboBoxDrivingStyles.setOnAction(this::handleChange);
+
+        this.fillTable();
     }
 
-    public void fillTable() {
+    private void handleChange(ActionEvent actionEvent){
+        try {
+            this.fillTable();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void fillTable() {
         ITipoConduccion drivingStyle = this.getDrivingStyle(comboBoxDrivingStyles.getValue());
         INeumatico tyre = PirelliFactory.getTyre(comboBoxTyres.getValue());
 
