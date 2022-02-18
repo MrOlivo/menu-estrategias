@@ -60,13 +60,13 @@ public class Controller implements Initializable {
         INeumatico tyre = PirelliFactory.getTyre(comboBoxTyres.getValue());
 
         int i = 0;
-        float useful_life = 100f;
+        float usefulLife = 100;
         ObservableList<Registro> tempList = FXCollections.observableArrayList();
 
         do{
-            tempList.add(new Registro(i++, useful_life));
-            useful_life = drivingStyle.calculateWearing(tyre, useful_life);
-        } while (useful_life > 0);
+            tempList.add(new Registro(i++, usefulLife));
+            usefulLife = drivingStyle.calculateWearing(tyre, usefulLife);
+        } while (usefulLife > 0);
 
         tableviewResults.setItems(tempList);
     }
