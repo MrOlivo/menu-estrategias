@@ -1,4 +1,5 @@
 .root{
     -fx-font-size: 10pt;
     -fx-font-family: "JetBrains Mono";
+    -fx-font-weight: bold;
 }
